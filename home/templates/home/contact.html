@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block section %}
+<!-- Page Header -->
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+            {% for message in messages %}
+                <div class="alert {{message.tags}} alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden=""true">&times;</span>
+                    </button>
+                    {{message}}
+                </div>	
+			{% endfor %}
+                <ul class="page-header-breadcrumb">
+                    <li><a href="{% url 'home' %}"><b> Home </b> </a></li>
+                    <li>Contact</li>
+                </ul>
+                <h1>Contact</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Header -->
+
+<!-- section -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="section-row">
+                    <h3>Contact Information</h3>
+                    <p>NT Blog by NT Python Team. You can contact or message us for dynamic web design and hosting. </p>
+                    <ul class="list-style">
+                        <li><p><strong>Email:</strong> <a href="#">ntpython@ntc.net.np</a></p></li>
+                        <li><p><strong>Phone:</strong> +977 1 4 4483875</p></li>
+                        <li><p><strong>Address:</strong> Nepal Telecom, Kathmandu</p></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-5 col-md-offset-1">
+                <div class="section-row">
+                    <h3>Send A Message</h3>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <span>Email</span>
+                                    <input class="input" type="email" name="email">
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <span>Subject</span>
+                                    <input class="input" type="text" name="subject">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <textarea class="input" name="message" placeholder="Message"></textarea>
+                                </div>
+                                <button class="primary-button">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /section -->
+{% endblock %}
+

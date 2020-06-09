@@ -1,0 +1,1 @@
+web: gunicorn connectNT.wsgi --log-file -
